@@ -60,5 +60,10 @@ public class AddTest {
         }
     }
 
+    @Test
+    public void shouldIgnoreNumbersGreaterThan1000(){
+        assertEquals(2, add.add("2,1001"));
+    }
+
 
 }

@@ -34,6 +34,7 @@ public class Add {
     private List<Integer> parseToIntegerList(String[] tokens) {
         return Arrays.stream(tokens)
                 .map(Integer::parseInt)
+                .filter(n -> n <= 1000)
                 .collect(Collectors.toList());
     }
 
