@@ -37,5 +37,10 @@ public class AddTest {
         assertEquals(3, add.add("//;\n1;2"));
     }
 
+    @Test
+    public void customDelimeterCouldBeRegExpSpecialChar(){
+        assertEquals(3, add.add("//.\n1.2"));
+    }
+
 
 }

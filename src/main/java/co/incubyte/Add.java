@@ -42,6 +42,6 @@ public class Add {
         matcher.matches();
         String customDelimiter = matcher.group(1);
         String numbers = matcher.group(2);
-        return numbers.split(customDelimiter);
+        return numbers.split(Pattern.quote(customDelimiter));
     }
 }
