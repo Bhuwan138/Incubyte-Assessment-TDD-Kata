@@ -65,5 +65,10 @@ public class AddTest {
         assertEquals(2, add.add("2,1001"));
     }
 
+    @Test
+    public void shouldAcceptCustomDelimeterOfAnyLength(){
+        assertEquals(6, add.add("//[***]\n1***2***3"));
+    }
+
 
 }

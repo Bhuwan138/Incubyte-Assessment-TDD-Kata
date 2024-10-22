@@ -57,11 +57,22 @@ public class Add {
     }
 
     private String[] splitUsingCustomDelimeterSyntax(String text) {
-        Matcher matcher = Pattern.compile("//(.)\n(.*)")
-                .matcher(text);
+        Matcher matcher = checkSingleOrMultipleCustomedDelimeterMatcher(text);
         matcher.matches();
-        String customDelimiter = matcher.group(1);
+        String delimiterPattern = matcher.group(1);
         String numbers = matcher.group(2);
-        return numbers.split(Pattern.quote(customDelimiter));
+        return numbers.split(Pattern.quote(delimiterPattern));
+
     }
+
+    private Matcher checkSingleOrMultipleCustomedDelimeterMatcher(String text) {
+        // multiple custom delimeters
+        if(text.startsWith("//[")){
+            return  Pattern.compile("//\\[(.+)]\\n(.*)").matcher(text);
+        }else { // single custom delimeter
+            return  Pattern.compile("//(.)\\n(.*)").matcher(text);
+        }
+    }
+
+
 }
