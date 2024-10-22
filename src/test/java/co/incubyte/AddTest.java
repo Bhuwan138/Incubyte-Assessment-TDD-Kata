@@ -42,5 +42,14 @@ public class AddTest {
         assertEquals(3, add.add("//.\n1.2"));
     }
 
+    @Test
+    public void shouldThrowExceptionOnNegativeNumber(){
+        try{
+            add.add("-1,-2,3");
+        }catch (IllegalArgumentException e){
+            assertEquals("negatives not allowed: -1,-2", e.getMessage());
+        }
+    }
+
 
 }
