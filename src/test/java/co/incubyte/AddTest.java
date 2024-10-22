@@ -75,5 +75,10 @@ public class AddTest {
         assertEquals(6, add.add("//[*][%]\n1*2%3"));
     }
 
+    @Test
+    public void shouldAcceptMultipleCustomDelimeterOfAnyLength(){
+        assertEquals(6, add.add("//[**][%%]\n1**2%%3"));
+    }
+
 
 }
