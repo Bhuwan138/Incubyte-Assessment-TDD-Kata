@@ -21,4 +21,9 @@ public class AddTest {
     public void shouldReturnSumOnTwoNumbersDelimitedByComma(){
         assertEquals(3, add.add("1,2"));
     }
+
+    @Test
+    public void shouldReturnSumOnMultipleNumbersDelimitedByComma(){
+        assertEquals(55, add.add("1,2,3,4,5,6,7,8,9,10"));
+    }
 }
