@@ -31,4 +31,11 @@ public class AddTest {
     public void shouldAcceptNewLineAsValidDelimeter(){
         assertEquals(6, add.add("1\n2,3"));
     }
+
+    @Test
+    public void shouldAcceptCustomDelimeterSyntax(){
+        assertEquals(3, add.add("//;\n1;2"));
+    }
+
+
 }
