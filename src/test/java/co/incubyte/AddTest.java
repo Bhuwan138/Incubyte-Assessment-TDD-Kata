@@ -51,5 +51,14 @@ public class AddTest {
         }
     }
 
+    @Test
+    public void showMultipleNegativeNumbersInExceptionMessage(){
+        try{
+            add.add("-1,-2,-3");
+        }catch (IllegalArgumentException e){
+            assertEquals("negatives not allowed: -1,-2,-3", e.getMessage());
+        }
+    }
+
 
 }
