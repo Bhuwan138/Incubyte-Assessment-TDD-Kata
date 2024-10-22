@@ -59,10 +59,24 @@ public class Add {
     private String[] splitUsingCustomDelimeterSyntax(String text) {
         Matcher matcher = checkSingleOrMultipleCustomedDelimeterMatcher(text);
         matcher.matches();
-        String delimiterPattern = matcher.group(1);
-        String numbers = matcher.group(2);
-        return numbers.split(Pattern.quote(delimiterPattern));
 
+        String delimiterPattern = matcher.group(1);
+        String []delimiters = extractDelimeters(delimiterPattern);
+        String combineDelimiterPattern = join("|", Arrays.stream(delimiters)
+                .map(Pattern::quote)
+                .toArray(String[]::new));
+
+        String numbers = matcher.group(2);
+        return numbers.split(combineDelimiterPattern);
+
+    }
+
+    private String[] extractDelimeters(String delimiterPattern) {
+        if(delimiterPattern.contains("][")){
+            return delimiterPattern.split("]\\[");
+        }else{
+            return new String[]{delimiterPattern};
+        }
     }
 
     private Matcher checkSingleOrMultipleCustomedDelimeterMatcher(String text) {
